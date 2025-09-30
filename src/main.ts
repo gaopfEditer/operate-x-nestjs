@@ -41,11 +41,13 @@ import { RbacModule } from './modules/rbac/rbac.module';
 import { RestfulFactory } from './modules/restful/factory';
 import { echoApi } from './modules/restful/helpers';
 import { UserModule } from './modules/user/user.module';
+import { NovelModule } from './modules/novel/novel.module';
+import { MangaModule } from './modules/manga/manga.module';
 
 const creator = createApp({
     configs,
     configure: { storage: true },
-    modules: [ContentModule, MediaModule, UserModule, RbacModule],
+    modules: [ContentModule, MediaModule, UserModule, RbacModule, NovelModule, MangaModule],
     globals: { guard: RbacGuard },
     builder: async ({ configure, BootModule }) => {
         const adapter = new FastifyAdapter();

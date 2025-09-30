@@ -1,8 +1,11 @@
 import * as contentControllers from '@/modules/content/controllers';
 import * as contentManageControllers from '@/modules/content/controllers/manage';
 import { Configure } from '@/modules/core/configure';
+import { MangaController } from '@/modules/manga/controllers/manga.controller';
+import { SimpleMangaController } from '@/modules/manga/controllers/simple-manga.controller';
 import { MediaManageController } from '@/modules/media/controllers/media-manage.controller';
 import { MediaController } from '@/modules/media/controllers/media.controller';
+import { NovelController } from '@/modules/novel/controllers/novel.controller';
 import * as rbacManageControllers from '@/modules/rbac/controllers';
 import { VersionOption } from '@/modules/restful/types';
 import { getUserControllers } from '@/modules/user/controllers';
@@ -28,6 +31,14 @@ export const v1 = async (configure: Configure): Promise<VersionOption> => ({
                         name: '文件操作',
                         description: '浏览及下载文件等',
                     },
+                    {
+                        name: '小说操作',
+                        description: '小说浏览、搜索、章节阅读等操作',
+                    },
+                    {
+                        name: '漫画操作',
+                        description: '漫画浏览、搜索、章节阅读等操作',
+                    },
                 ],
             },
             children: [
@@ -45,6 +56,16 @@ export const v1 = async (configure: Configure): Promise<VersionOption> => ({
                     name: 'media',
                     path: '',
                     controllers: [MediaController],
+                },
+                {
+                    name: 'novel',
+                    path: '',
+                    controllers: [NovelController],
+                },
+                {
+                    name: 'manga',
+                    path: '',
+                    controllers: [MangaController, SimpleMangaController],
                 },
             ],
         },
