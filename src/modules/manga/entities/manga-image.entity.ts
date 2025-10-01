@@ -83,16 +83,16 @@ export class MangaImageEntity extends BaseEntity {
 
     @Expose({ groups: ['image-detail'] })
     @Type(() => Date)
-    @CreateDateColumn({ comment: '创建时间' })
+    @CreateDateColumn({ comment: '创建时间', name: 'created_at' })
     createdAt!: Date;
 
     @Expose({ groups: ['image-detail'] })
     @Type(() => Date)
-    @UpdateDateColumn({ comment: '更新时间' })
+    @UpdateDateColumn({ comment: '更新时间', name: 'updated_at' })
     updatedAt!: Date;
 
     @Expose({ groups: ['image-detail'] })
     @Type(() => Date)
-    @DeleteDateColumn({ comment: '删除时间' })
+    @DeleteDateColumn({ comment: '删除时间', name: 'deleted_at' })
     deletedAt!: Date;
 }
